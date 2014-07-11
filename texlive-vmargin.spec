@@ -6,7 +6,7 @@
 # catalog-version 2.5
 Name:		texlive-vmargin
 Version:	2.5
-Release:	7
+Release:	8
 Summary:	Set various page dimensions
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/vmargin
