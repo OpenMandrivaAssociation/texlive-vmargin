@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/vmargin
-# catalog-date 2009-09-27 12:18:28 +0200
-# catalog-license lppl
-# catalog-version 2.5
 Name:		texlive-vmargin
-Version:	2.5
-Release:	12
+Version:	15878
+Release:	1
 Summary:	Set various page dimensions
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/vmargin
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vmargin.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -30,12 +24,12 @@ small, and gets the job done. If you are looking for something
 more elaborate try the geometry package.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -49,23 +43,11 @@ more elaborate try the geometry package.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.5-2
-+ Revision: 757473
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.5-1
-+ Revision: 719892
-- texlive-vmargin
-- texlive-vmargin
-- texlive-vmargin
-
